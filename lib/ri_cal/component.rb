@@ -207,6 +207,7 @@ module RiCal
     def export_prop_to(export_stream, name, prop) #:nodoc:
       if prop
         string = prop_string(name, prop)
+        string.gsub!( "\n", "\n\t" ) if name == "ATTACH"
         export_stream.puts(string) if string
       end
     end
